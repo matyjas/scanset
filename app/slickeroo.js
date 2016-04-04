@@ -10,4 +10,12 @@ $(document).ready(function(){
 	"respondsTo": "window",
 	"slidesToShow": 1
     });
+
+    $('button#addSection').click(function(e){
+	var now = new Date();
+	var section = '<section class="object">' + now.toUTCString() +'</section>';
+	e.preventDefault();
+	$('.content').slick('slickAdd', "<p>yeaah</p>");
+    });
 });
+
