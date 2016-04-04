@@ -13,7 +13,8 @@
     "test": "mocha"
   },
   "dependencies": {
-    "brunch": "^2.6.1"
+    "brunch": "^2.6.1",
+    "jquery": "^2.2.2"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.0.0",
