@@ -26,14 +26,21 @@ $('.content').on('afterChange', function(event, slick, currentSlide) {
 
     // copy by value
     var workingCopy = Object.assign({}, NewSections);
-
+    var sectionTemplate = require('templates/section');
+    
     if(lastUpdate < workingCopy.timestamp) {
 
 	lastUpdate = workingCopy.timestamp;
 	workingCopy.list.forEach(function(item, index, array) {
-	    $('.content').slick('slickAdd', "<section class='object'>" + item + "</section>");
+	    $('.content').slick('slickAdd', sectionTemplate({name: item}));
 	});
     }
+});
+
+$('button#addSection').click(function(e){
+    var now = new Date();
+    e.preventDefault();
+    SlickRick.addSections(["boom", "bap", now.toUTCString()]);
 });
 
 var SlickRick = {
