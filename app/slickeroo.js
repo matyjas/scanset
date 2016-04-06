@@ -1,21 +1,56 @@
 "use strict";
 
-$(document).ready(function(){
-    $('.content').slick({
-	"centerMode": true,
-	"centerPadding": '5%',
-	"infinite": true,
-	"initialSlide": 1,
-	"mobileFirst": true,
-	"respondsTo": "window",
-	"slidesToShow": 1
-    });
+var slidesToShow = 1;
+var lastUpdate = 0;
 
-    $('button#addSection').click(function(e){
-	var now = new Date();
-	var section = '<section class="object">' + now.toUTCString() +'</section>';
-	e.preventDefault();
-	$('.content').slick('slickAdd', "<p>yeaah</p>");
-    });
+$('.content').slick({
+    "centerMode": true,
+    "centerPadding": '5%',
+    "infinite": true,
+    "initialSlide": 1,
+    "mobileFirst": true,
+    "respondsTo": "window",
+    "slidesToShow": slidesToShow,
+    "touchThreshold": 5
 });
 
+$('.content').on('afterChange', function(event, slick, currentSlide) {
+
+    // copy by value
+    var workingCopy = Object.assign({}, NewSections);
+
+    if(lastUpdate < workingCopy.timestamp) {
+
+	lastUpdate = workingCopy.timestamp;
+	workingCopy.list.forEach(function(item, index, array) {
+	    $('.content').slick('slickAdd', "<section class='object'>" + item + "</section>");
+	});
+    }
+});
+
+$('button#addSection').click(function(e){
+    var now = new Date();
+    e.preventDefault();
+    SlickRick.addSections(["whoa!", now.toUTCString(), "yeaah"]);
+});
+
+var NewSections = {
+
+    list: [],
+    timestamp: 0
+};
+
+var SlickRick = {
+
+    addSections: function addSections(listOfObjects){
+
+	var newSections = {
+	    list: listOfObjects,
+	    timestamp: Date.now()
+	};
+	// transactional like
+	NewSections = newSections;
+    }
+};
+
+module.export = SlickRick;
