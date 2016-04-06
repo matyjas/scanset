@@ -8,6 +8,9 @@ var NewSections = {
     timestamp: 0
 };
 
+// for some reason, i dont need this
+// var $ = require('jquery');
+
 $('.content').slick({
     "centerMode": true,
     "centerPadding": '5%',
