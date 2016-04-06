@@ -2,6 +2,11 @@
 
 var slidesToShow = 1;
 var lastUpdate = 0;
+var NewSections = {
+
+    list: [],
+    timestamp: 0
+};
 
 $('.content').slick({
     "centerMode": true,
@@ -27,18 +32,6 @@ $('.content').on('afterChange', function(event, slick, currentSlide) {
 	});
     }
 });
-
-$('button#addSection').click(function(e){
-    var now = new Date();
-    e.preventDefault();
-    SlickRick.addSections(["whoa!", now.toUTCString(), "yeaah"]);
-});
-
-var NewSections = {
-
-    list: [],
-    timestamp: 0
-};
 
 var SlickRick = {
 
