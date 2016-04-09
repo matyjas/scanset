@@ -4,7 +4,7 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-  <title>SCANSET</title>
+  <title>[ SCANSET ]</title>
   <link rel="stylesheet" href="/app.css">
   <script src="/app.js"></script>
 </head>
@@ -23,10 +23,24 @@
   </article>
 </div>
 <footer>
-  <form autocomplete="off" >
-    <button id="addSection">Add section</button>
+  <form >
+    <div id="foursquare-controls" class="search-controls">
+      <img src="img/4sq/connect-white@2x.png"
+	   width="150px"
+	   alt="connect to foursquare"/>
+    </div>
+    <div class="search-controls">
+      <input type="search" id="querybox" value=""
+	     placeholder="check in quick!" autofocus=true
+	     incremental=true autosave/>
+    </div>
+    <div class="search-controls">
+      <label for="locshared">Use Location?</label>
+      <input type="checkbox" id="locshared" />
+    </div>
   </form>
 </footer>
 <script>require('slickeroo');</script>
+<script>require('forquays');</script>
 </body>
 </html>

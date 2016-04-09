@@ -33,7 +33,7 @@
 
 	    lastUpdate = workingCopy.timestamp;
 	    workingCopy.list.forEach(function(item, index, array) {
-		$('.content').slick('slickAdd', sectionTemplate({name: item}));
+		$('.content').slick('slickAdd', sectionTemplate(item));
 	    });
 	}
     });
@@ -57,5 +57,5 @@
 	}
     };
 
-    module.export = SlickRick;
+    module.exports = SlickRick;
 })();

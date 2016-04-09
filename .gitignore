@@ -32,3 +32,4 @@ public/
 bower_components/
 
 .netlify
+env.sh
